@@ -17,10 +17,10 @@
 
 (defn uberjar [_]
   (clean nil)
-  (copy-dir {:target-dir class-dir, :src-dirs ["src" "resources"]})
-  (compile-clj {:basis basis, :class-dir class-dir, :src-dirs ["src"]})
+  (copy-dir {:target-dir class-dir :src-dirs ["src" "resources"]})
+  (compile-clj {:basis basis :class-dir class-dir :src-dirs ["src"]})
   (uber
-    {:basis     basis,
-     :uber-file uber-file,
-     :class-dir class-dir,
+    {:basis     basis
+     :uber-file uber-file
+     :class-dir class-dir
      :main      (symbol "repl-runner.core")}))
